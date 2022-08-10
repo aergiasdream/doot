@@ -1,0 +1,7 @@
+#!/bin/bash
+#
+# A script to change the volume and push status
+
+amixer -D pulse set Master $1
+vol=$(~/.config/.scripts/volume)
+notify-send $vol -h string:synchronous:stat

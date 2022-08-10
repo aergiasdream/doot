@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# Modified from a script by Addyfeh
+# Modified specifically for polybar to fit into the icon/text color theme (derived from xrdb).
+# Will return colored terminal text unless using p flag for polybar
+# temp >30 very hot
+# temp 25-29 hot
+# temp 20-24 perfect
+# temp 10-19 chilly
+# temp 5-10 cold
+# temp <5 very cold
+
+API_KEY="59c002cd8866adaa74d622108ea73fd9"
+CITY_ID="5809844"
+
+# Icons from 3270Medium Nerd Font Mono
+ICON_MISC=""
+ICON_THUNDERSTORM=""
+ICON_DRIZZLE=""
+ICON_RAIN=""
+ICON_SNOW=""
+ICON_FOG=""
+ICON_CLEAR=""
+ICON_CLOUDS=""
+ICON_MOON=""
+# Icons from CozetteVector
+#ICON_MISC=""
+#ICON_THUNDERSTORM=""
+#ICON_DRIZZLE=""
+#ICON_RAIN=""
+#ICON_SNOW=""
+#ICON_FOG=""
+#ICON_CLEAR=""
+#ICON_CLOUDS=""
+#ICON_MOON=""
+SYMBOL_CELSIUS="˚C"
+WEATHER_URL="https://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&appid=${API_KEY}&units=metric"
+URL_STATUS=$(curl -Is ${WEATHER_URL} | head -1 | awk -F ' ' '{print $2}' )
+status_color=".foreground"
+WEATHER_INFO=$(wget -qO- "${WEATHER_URL}")
+WEATHER_MAIN=$(echo "${WEATHER_INFO}" | grep -o -e '\"main\":\"[A-Za-z]*\"' | head -1 | awk -F ':' '{print $2}' | tr -d '"')
+WEATHER_TEMP=$(echo "${WEATHER_INFO}" | grep -o -e '\"temp\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+WEATHER_ID=$(echo "${WEATHER_INFO}" | grep -o -e '\"id\":\-\?[0-9]*' | awk -F ':' '{print $2}' | head -c3) 
+WEATHER_GROUP=$(echo "${WEATHER_ID}" | head -c1)
+SUNSET=$(echo "${WEATHER_INFO}" | grep -o -e '\"sunset\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d " ")
+SUNRISE=$(echo "${WEATHER_INFO}" | grep -o -e '\"sunrise\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d " ")
+CURRENT_TIME=$(date -u +"%s")
+
+if [ "${URL_STATUS}" = 200 ]; then
+  if [ "${WEATHER_GROUP}" = 2 ]; then
+    WEATHER_TYPE=${ICON_THUNDERSTORM}
+    status_color=".color1"
+  elif [ "${WEATHER_GROUP}" = 3 ]; then
+    WEATHER_TYPE=${ICON_DRIZZLE}
+    status_color=".color4"
+  elif [ "${WEATHER_GROUP}" = 5 ]; then
+    WEATHER_TYPE=${ICON_RAIN}
+    status_color=".color4"
+  elif [ "${WEATHER_GROUP}" = 6 ]; then
+    WEATHER_TYPE=${ICON_SNOW}
+    status_color=".color4"
+  elif [ "${WEATHER_GROUP}" = 7 ]; then
+    WEATHER_TYPE=${ICON_FOG}
+  elif [ "${WEATHER_GROUP}" = 8 ]; then
+    if [ "${WEATHER_ID}" = 800 ]; then
+      if [ ${CURRENT_TIME} -gt ${SUNRISE} ] && [ ${CURRENT_TIME} -lt ${SUNSET} ]; then
+        WEATHER_TYPE=${ICON_CLEAR}
+      else
+	WEATHER_TYPE=${ICON_MOON}
+      fi
+    else
+      WEATHER_TYPE=${ICON_CLOUDS}
+    fi
+  else
+    WEATHER_TYPE=${ICON_MISC}
+  fi
+
+ICON_COLOR=`xrdb -query | grep .color10 | head -1 | awk -F '#' '{print $2}'`
+TEXT_COLOR=`xrdb -query | grep ${status_color} | awk -F '#' '{print $2}'`
+
+RGB_ICON_COLOR=`printf "%d;%d;%d" 0x${ICON_COLOR:0:2} 0x${ICON_COLOR:2:2} 0x${ICON_COLOR:4:2}`
+RGB_TEXT_COLOR=`printf "%d;%d;%d" 0x${TEXT_COLOR:0:2} 0x${TEXT_COLOR:2:2} 0x${TEXT_COLOR:4:2}`
+
+  if [ "$1" = "-p" ]; then
+    echo "%{F#${ICON_COLOR}}${WEATHER_TYPE} %{F#${TEXT_COLOR}}${WEATHER_MAIN}%{F-}  ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
+  else
+    echo -e "\e[38;2;${RGB_ICON_COLOR}m${WEATHER_TYPE} \e[38;2;${RGB_TEXT_COLOR}m${WEATHER_MAIN} ${WEATHER_TEMP}${SYMBOL_CELSIUS}"
+  fi
+else
+  echo "No connection to server"
+fi
+

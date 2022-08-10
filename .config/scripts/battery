@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Return battery power level and whether charging or critically low
+
+lvl=$(acpi | grep -o '[0-9]\+%')
+stat=$(acpi | grep -o '\b\(Disc\|C\)harging\b')
+
+if (( ${lvl::-1} < 10 )) && [[ $stat != "Charging" ]] ; then
+  stat="connect charger"
+fi
+
+if [[ "$lvl" = "" ]]; then
+  echo "No battery present"
+else
+  echo "$lvl, $stat"
+fi

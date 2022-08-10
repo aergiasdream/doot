@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Display a power menu using rofi
+export PATH="$PATH:/usr/bin:/sbin:/bin"
+username=$(/usr/bin/whoami)
+pid=$(pgrep -u $username openbox)
+dbus=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$pid/environ | sed 's/DBUS_SESSION_BUS_ADDRESS=//' )
+export DBUS_SESSION_BUS_ADDRESS=$dbus
+
+MENU="Yes\nNo"
+ROFI=$(printf $MENU | timeout 60 rofi -dmenu -lines 1 -columns 2 -width 45 -p "Shutting down in 1 minute. Proceed?" -hide-scrollbar -location 0)
+
+if [ -n $ROFI ]; then
+
+  case $ROFI in
+    No)
+      echo "Canceling..."
+      ;;
+    *|Yes)
+      notify-send -u critical "Shutting down..."
+      sleep 3 && poweroff
+      ;;
+  esac
+fi
+

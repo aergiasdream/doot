@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# A script to launch conky widgets for a barless systeminfo display
+
+killall -q conky
+
+while pgrep -u $UID -x conky >/dev/null; do sleep 2; done
+
+echo "Launching widgets"
+
+conky -d -c ~/.config/conky/laptop/datetime.conf
+conky -d -c ~/.config/conky/laptop/wifi.conf
+conky -d -c ~/.config/conky/laptop/battery.conf
+
+echo "Done"
+
+exit 0
+

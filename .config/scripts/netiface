@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Show networking information with optional formatting and icon
+
+device="$(route | grep '^default' | head -1 | awk -F ' ' '{print $8}')"
+ethernet="enp2s0f1"
+wireless="wlp3s0"
+
+if [[ "$device" == "$ethernet" ]]; then
+  localip="$(ifconfig $device | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk -F ':' '{print $2}')"
+  if [[ $1 == "-i" ]]; then
+    echo -e ":${localip}"
+  else
+    echo -e "${localip}"
+  fi
+elif [[ "$device" == "$wireless" ]]; then
+  ssid="$(iwgetid -r)"
+  if [[ $1 == "-i" ]]; then
+    echo -e ":${ssid}"
+  else
+    echo -e "${ssid}"
+  fi
+elif [[ -z "$device" ]]; then
+  echo -e "Not connected"
+else
+  echo -e "Device not recognized"
+fi

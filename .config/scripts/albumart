@@ -1,0 +1,13 @@
+#! /bin/bash
+#
+# Creates an image file from ID3 of current song
+
+cover=/tmp/cover.jpg
+
+{ IFS=$(echo -en "\n\b")
+  if [ -f ${cover} ]; then
+    rm ${cover}
+  fi
+  file="$(mpc --format [%file%] current)"
+  ffmpeg -loglevel quiet -vsync 2 -i ~/Music/${file} ${cover}
+}

@@ -1,0 +1,33 @@
+#!/bin/bash
+# Update alacritty config to apply Xresources color scheme
+
+# Target file--this replaces the default alacritty config. I have backups, so if you're not me, don't run this without a backup
+target_file="$HOME/.config/alacritty/alacritty.yml"
+
+# copy input file to temporary file 
+# alacritty applies colors when the config file is written, so we want to do it
+# all in one write
+cp $target_file $target_file.tmp
+
+# Grab colors from Xresources
+xrdb ~/.Xresources
+
+# Numbered colors
+for i in {0..15}
+do
+    v=`xrdb -query | awk '/*.color'"$i":'/ { print substr($2,2) }'`
+    echo 'color'$i $v
+    eval "sed -i 's/%c${i}%/\x270x${v}\x27/g' $target_file.tmp";
+done
+
+# Named colors
+foreground=`xrdb -query | awk '/*.foreground/ { print substr($2,2) }'`
+echo $foreground
+background=`xrdb -query | awk '/*.background/ { print substr($2,2) }'`
+echo $background
+sed -i "s/%cfg%/\x270x${foreground}\x27/g" $target_file.tmp
+sed -i "s/%cbg%/\x270x${background}\x27/g" $target_file.tmp
+
+# Replace target file with our updated one
+rm $target_file
+mv $target_file.tmp $target_file

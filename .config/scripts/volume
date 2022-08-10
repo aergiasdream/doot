@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Display volume of main audio channel (mute support)
+
+snd=$(amixer -D pulse sget Master)
+vol=$(echo $snd | awk -F "[][]" '{print $2}')
+st=$(echo $snd | awk -F "[][]" '{print $4}')
+
+if [ $st == "off" ]; then
+  echo "Muted"
+else
+  echo $vol
+fi

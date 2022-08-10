@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# Display a power menu using rofi
+
+MENU="Logout\nShutdown\nReboot\nSleep\nHibernate"
+ROFI=$(printf $MENU | rofi -dmenu -lines 5 -columns 1 -width -12 -p "" -hide-scrollbar -location 0 -theme-str '#mainbox { children: [listview]; }')
+
+
+if [ -n $ROFI ]; then
+
+  # hardcode copying background for lockscreen, work on fixing
+
+  cp /home/aeskhulos/.themes/slim/oaxaca/original_bg.png /home/aeskhulos/.themes/slim/oaxaca/background.png
+
+  case $ROFI in
+    Logout)
+      notify-send -u critical "Logging out..."
+      sleep 3 && openbox --exit
+      ;;
+    Shutdown)
+      notify-send -u critical "Shutting down..."
+      sleep 3 && poweroff
+      ;;
+    Reboot)
+      notify-send -u critical "Rebooting..."
+      sleep 3 && reboot
+      ;;
+    Sleep)
+      notify-send "Entering sleep mode..."
+      sleep 3 && dm-tool lock && systemctl suspend
+      ;;
+    Hibernate)
+      notify-send "Hibernating..."
+      sleep 3 && dm-tool lock && systemctl hibernate
+      ;;
+  esac
+fi
+

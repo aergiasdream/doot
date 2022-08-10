@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# A script to force monitors to power save
+
+TEMP_FILE=/tmp/background.png
+TARGET_FILE=/home/aeskhulos/.themes/slim/oaxaca/background.png
+
+scrot $TEMP_FILE
+convert $TEMP_FILE -blur 0x15 $TARGET_FILE
+slimlock
+
+exit 0

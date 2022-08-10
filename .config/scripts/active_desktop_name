@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo $(wmctrl -d | grep \* | grep -o "[^[:space:]]*$")

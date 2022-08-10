@@ -1,0 +1,100 @@
+#!/bin/bash
+#
+# Convert an m3u to a JSON format file
+
+# TODO: take argument for output location
+# add option to search for file if not found via m3u file path
+# add flag for optional inclusion of file extension in file search 
+
+if [ -z "$1" ]; then
+  echo "Need input file"
+  exit 1
+fi
+
+input_encoding=$(file -b --mime-encoding "$1")
+input_filename=$( echo $1 | sed 's|.*/\(.*\)|\1|' )
+
+if [[ $input_encoding != "utf-8" ]]; then
+  pl_file=/tmp/${input_filename}
+  iconv -f ${input_encoding} -t utf-8 -o "${pl_file}" "$1"
+else
+  pl_file="$1"
+fi  
+
+json_file=$( echo $pl_file | sed 's/.*\/\(.*\)\..*/\1/' )
+json_file+=.json
+# Playlist files are relative to the mpd default library
+mpd_conf="$HOME/.mpd/mpd.conf"
+dir_prefix="$( grep -o "^\smusic_directory.*" ${mpd_conf} | sed 's/.*\"\(.*\)\"/\1/' )"
+dir_prefix="${dir_prefix/#\~/$HOME}"
+tracknum="1"
+total_tracks=$(grep -c "^[^#]" "${pl_file}")
+indent="  "
+comma=","
+lastline=$(tail -n 1 "${pl_file}")
+
+if [ -f ${json_file} ]; then
+  echo "file exists. Overwrite? Y/N"
+  # TODO: Make this part work
+  exit 1
+else
+  touch ${json_file}
+fi
+
+echo "{" > ${json_file}
+
+close_tags () {
+    indent=${indent::-2}
+    echo "${indent}}${comma}" >> ${json_file}
+}
+
+while read -r line; do
+  if [[ "${line:0:1}" != "#" ]]; then
+    printf -v zpad_tracknum "%02d" ${tracknum}
+    if [[ "$line" == "$lastline" ]]; then
+      comma=""
+    fi
+    # echo "Converting track ${tracknum} of ${total_tracks}"
+    printf "Converting track ${tracknum} of ${total_tracks}... "
+    echo "${indent}\"${zpad_tracknum}\": {" >> ${json_file}
+    ((tracknum+=1))
+    indent+="  "
+    line="$( echo "$line" | sed 's|\\|/|g' | sed 's|[[:space:]]*$||' )"
+    song="$( echo "${dir_prefix}/${line}" )"
+    if [ ! -f "$song" ]; then
+      printf "File doesn't exist, searching..." 
+      file="$( echo "$line" | sed 's|/.*/||' )" 
+      song="$( find -L "${dir_prefix}" -iname "*${file}*" -print -quit )"
+      if [ -f "$song" ]; then
+        printf " Found!\\n"
+      else
+        printf "\\nFile not found, widening search..." 
+        field1="$( echo "${file}" | sed 's|\s-\s.*||' )" 
+        field2="$( echo "${file}" | sed 's|.*-\s\(.*\)\.[^.]*|\1|' )"
+        song="$( find -L "${dir_prefix}" -iname "*${field1}*${field2}.*" -print -quit )"
+        if [ -f "$song" ]; then
+          printf " Found!\\n"
+        else
+          printf " No file found\\n"
+          close_tags
+          continue
+        fi 
+      fi
+    fi
+
+    info="ffprobe -loglevel error -of default=noprint_wrappers=1:nokey=1 -show_entries"
+    artist=$($info format_tags=artist "$song")
+    title=$($info format_tags=title "$song")
+    length=$($info format=duration "$song")
+
+    echo "${indent}\"track\": \"$zpad_tracknum\"," >> ${json_file}
+    echo "${indent}\"artist\": \"$artist\"," >> ${json_file}
+    echo "${indent}\"title\": \"$title\"," >> ${json_file}
+    echo "${indent}\"length\": \"$length\"" >> ${json_file}
+    
+    close_tags
+
+  fi
+done < "$pl_file"
+
+echo "}" >> ${json_file}

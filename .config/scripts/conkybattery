@@ -1,0 +1,28 @@
+#! /bin/bash
+#
+# A script to feed an image of a percent-appropriate battery for conky purposes 
+
+pct=$(acpi | grep -o '[0-9]\+%' | grep -o '[0-9]\+')
+rmn=$(($pct % 20))
+sta=$(acpi | awk -F ' ' '{print $3}')
+lev=$(($pct / 20 * 20))
+
+# An awkward way of rounding up
+if (( $rmn > 10 )); then
+ lev=$((lev + 20))
+fi
+
+# Zero padding
+if (( $lev == 0 )); then
+  lev=000
+elif (( $lev < 100 )); then
+  lev=0$lev
+fi
+
+if [ "$sta" == "Charging," ]; then
+  chg="-charging"
+else
+  chg=""
+fi
+
+cp ~/.local/share/icons/Papirus/16x16/panel/battery-$lev$chg.png /tmp/batt.png
