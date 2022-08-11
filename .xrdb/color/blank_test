@@ -1,0 +1,74 @@
+! A color theme of dark and flat but natural colors
+!
+! Daniel Pawlowski <churchofacme@gmail.com>
+!
+! This theme follows the base16 styling guideline
+! For more info visit https://chriskempson.com/projects/base16/
+!
+! 08: variables, xml tags, markup link text, markup lists, diff deleted	[suggest: red]
+! 09: integers, boolean, constants, xml attributes, markup link url		[suggest: orange]
+! 0A: classes, markup bold, search text background 						[suggest: yellow]
+! 0B: strings, inherited class, markup code, diff inserted				[suggest: green]
+! 0C: support, regular expressions, escape characters, markup quotes	[suggest: blue]
+! 0D: functions, methods, attribute IDs, headings						[suggest: cyan]
+! 0E: keywords, storage, selector, markup italic, diff changed			[suggest: purple]
+! 0F: deprecated, opening/closing embedded language tags				[suggest: brown]
+
+#define baseLT #f19400
+#define baseDK #18150C
+
+! bright colors
+#define baseBLK_BRT #1a1712
+#define baseRED_BRT #5d691d
+#define baseGRN_BRT #6f7616
+#define baseYLW_BRT #8a6829
+#define baseBLU_BRT #f1b926
+#define baseCYN_BRT #ffd52b
+#define baseMAG_BRT #ced827
+#define baseWHT_BRT #dfe5e5
+
+! light colors for dark themes
+#define baseBLK_LT #544c4a
+#define baseRED_LT #bf616a
+#define baseGRN_LT #a3be8c
+#define baseYLW_LT #ebcb8b
+#define baseBLU_LT #5e81ac
+#define baseCYN_LT #6f7616
+#define baseMAG_LT #b48ead
+#define baseWHT_LT #dfe5e5
+
+*.background:   baseDK
+*.foreground:   baseLT
+*.cursorColor:  baseMAG_BRT
+
+! black
+*.color0	:	baseBLK_BRT
+*.color8	:	baseBLK_LT
+
+! red
+*.color1	:	baseRED_BRT
+*.color9	:	baseRED_LT
+
+! green
+*.color2	:	baseGRN_BRT
+*.color10	:	baseGRN_LT
+
+! yellow
+*.color3	:	baseYLW_BRT
+*.color11	:	baseYLW_LT
+
+! blue
+*.color4	:	baseBLU_BRT
+*.color12	:	baseBLU_LT
+
+! magenta
+*.color5	:	baseMAG_BRT
+*.color13	:	baseMAG_LT
+
+! cyan
+*.color6	:	baseCYN_BRT
+*.color14	:	baseCYN_LT
+
+! white
+*.color7	:	baseWHT_BRT
+*.color15	:	baseWHT_LT

@@ -1,0 +1,57 @@
+! A color theme of dark and flat but natural colors
+!
+! Daniel Pawlowski <churchofacme@gmail.com>
+!
+! This theme follows the base16 styling guideline
+! For more info visit https://chriskempson.com/projects/base16/
+!
+! 08: variables, xml tags, markup link text, markup lists, diff deleted	[suggest: red]
+! 09: integers, boolean, constants, xml attributes, markup link url		[suggest: orange]
+! 0A: classes, markup bold, search text background 						[suggest: yellow]
+! 0B: strings, inherited class, markup code, diff inserted				[suggest: green]
+! 0C: support, regular expressions, escape characters, markup quotes	[suggest: blue]
+! 0D: functions, methods, attribute IDs, headings						[suggest: cyan]
+! 0E: keywords, storage, selector, markup italic, diff changed			[suggest: purple]
+! 0F: deprecated, opening/closing embedded language tags				[suggest: brown]
+
+#define base00 #f3f1ef
+#define base01 #c2c0bf
+#define base02 #91908f
+#define base03 #18150c
+
+#define base04 #6c7a89
+#define base05 #e5e9f0
+#define base06 #a6809f
+#define base07 #d1d5dc
+
+#define base08 #a5000c
+#define base09 #d35400
+#define base0A #c3a632
+#define base0B #124e2d
+#define base0C #1b3999
+#define base0D #009999
+#define base0E #a914a2
+#define base0F #7dbba8
+
+*.background:   base03
+*.foreground:   base07
+*.cursorColor:  base0E
+
+
+*.color0	:	base00
+*.color1	:	base08
+*.color2	:	base0B
+*.color3	:	base0A
+*.color4	:	base0D
+*.color5	:	base0E
+*.color6	:	base0C
+*.color7	:	base05
+
+*.color8	:	base03
+*.color9	:	base09
+*.color10	:	base01
+*.color11	:	base02
+*.color12	:	base04
+*.color13	:	base06
+*.color14	:	base0F
+*.color15	:	base07

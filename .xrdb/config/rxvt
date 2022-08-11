@@ -1,0 +1,12 @@
+URxvt.font:	xft:OverpassMono:size=11,xft:FontAwesome:size=10
+URxvt*iconFile:	/usr/share/icons/Papirus/48x48/apps/urxvt_48x48.svg
+URxvt.letterSpace:	-1
+URxvt.scrollBar:	false
+URxvt.name:	urxvt
+URxvt.tabbed.tab-numbers:	false
+URxvt.tabbed.new-button:	false
+URxvt.tabbed.tabbar-fg: 4	
+URxvt.tabbed.tabbar-bg: 8
+URxvt.tabbed.tab-fg:	9
+URxvt.tabbed.tab-bg:	7	
+

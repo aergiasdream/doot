@@ -1,0 +1,71 @@
+! A color theme based off of a picture of Oaxaca, MX
+
+#define baseLT #c1b18d
+#define baseDK #1f1f1f
+
+! bright colors
+#define baseBLK_BRT #706856
+#define baseRED_BRT #8e4d2e
+#define baseGRN_BRT #4f6630
+#define baseYLW_BRT #745b3c
+#define baseBLU_BRT #096683
+#define baseCYN_BRT #306867
+#define baseMAG_BRT #725575
+#define baseWHT_BRT #6a5d53
+
+! dark colors, for light themes
+#define baseBLK_DK #1f1f1f
+#define baseRED_DK #703416
+#define baseGRN_DK #354c18
+#define baseYLW_DK #573f22
+#define baseBLU_DK #004a65
+#define baseCYN_DK #124e4d
+#define baseMAG_DK #573c5a
+#define baseWHT_DK #4d4238
+
+! light colors, for dark themes
+#define baseBLK_LT #4a3637
+#define baseRED_LT #a75e3a
+#define baseGRN_LT #516832
+#define baseYLW_LT #795f40
+#define baseBLU_LT #307c9a
+#define baseCYN_LT #5a9190
+#define baseMAG_LT #745777
+#define baseWHT_LT #7c6f64
+
+*.background:   baseLT
+*.foreground:   baseDK
+*.cursorColor:  baseDK
+
+! black
+*.color0	:	baseBLK_BRT
+*.color8	:	baseBLK_LT
+
+! red
+*.color1	:	baseRED_BRT
+*.color9	:	baseRED_LT
+
+! green
+*.color2	:	baseGRN_BRT
+*.color10	:	baseGRN_LT
+
+! yellow
+*.color3	:	baseYLW_BRT
+*.color11	:	baseYLW_LT
+
+! blue 
+*.color4	:	baseBLU_BRT
+*.color12	:	baseBLU_LT
+
+! magenta
+*.color5	:	baseMAG_BRT
+*.color13	:	baseMAG_LT
+
+! cyan
+*.color6	:	baseCYN_BRT
+*.color14	:	baseCYN_LT
+
+! white
+*.color7	:	baseWHT_BRT
+*.color15	:	baseWHT_LT
+

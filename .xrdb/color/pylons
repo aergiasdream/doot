@@ -1,0 +1,83 @@
+! A color theme based off of some bright neon colors
+!
+! Daniel Pawlowski <churchofacme@gmail.com>
+!
+! This theme follows the base16 styling guideline
+! For more info visit https://chriskempson.com/projects/base16/
+!
+! For light theme, swap foreground and background colors and use dark colors
+
+#define baseBG #28454B
+#define baseBG_LT #365D65
+#define baseBG_DK #05252B
+#define baseFG #B2AFB1
+#define baseFG_DK #C2CCCD
+#define baseFG_LT #CDCBCC
+
+! bright colors
+#define baseBLK_BRT #021114
+#define baseRED_BRT #FD9BCC
+#define baseGRN_BRT #00985D
+#define baseYLW_BRT #CBA678
+#define baseBLU_BRT #346798
+#define baseMAG_BRT #A85A9B
+#define baseCYN_BRT #00B3B3
+#define baseWHT_BRT #DEE1E1
+
+! dark colors, for light themes
+#define baseBLK_DK #03181A
+#define baseRED_DK #2B1928
+#define baseGRN_DK #005031
+#define baseYLW_DK #996300
+#define baseBLU_DK #0F4880
+#define baseCYN_DK #00A3A3
+#define baseMAG_DK #663399
+#define baseWHT_DK #9BA3A4
+
+! light colors, for dark themes
+#define baseBLK_LT #062f38
+#define baseRED_LT #D59BB8
+#define baseGRN_LT #509B7F
+#define baseYLW_LT #D3B289
+#define baseBLU_LT #3e7bb5
+#define baseMAG_LT #956D8E
+#define baseCYN_LT #5CC4C4
+#define baseWHT_LT #C2CCCD
+
+
+*.background:   baseBG
+*.foreground:   baseFG
+*.cursorColor:  baseFG
+
+! black
+*.color0	:	baseBLK_BRT
+*.color8	:	baseBLK_LT
+
+! red
+*.color1	:	baseRED_BRT
+*.color9	:	baseRED_LT
+
+! green
+*.color2	:	baseGRN_BRT
+*.color10	:	baseGRN_LT
+
+! yellow
+*.color3	:	baseYLW_BRT
+*.color11	:	baseYLW_LT
+
+! blue 
+*.color4	:	baseBLU_BRT
+*.color12	:	baseBLU_LT
+
+! magenta
+*.color5	:	baseMAG_BRT
+*.color13	:	baseMAG_LT
+
+! cyan
+*.color6	:	baseCYN_BRT
+*.color14	:	baseCYN_LT
+
+! white
+*.color7	:	baseWHT_BRT
+*.color15	:	baseWHT_LT
+

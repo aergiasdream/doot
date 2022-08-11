@@ -1,0 +1,18 @@
+! --------------------------------------------------------------------------
+! Import Colour from ~/.xrdb
+! --------------------------------------------------------------------------
+
+#include ".xrdb/color/theme"
+! #include ".xrdb/color/pine"
+#include ".xrdb/config/rofi"
+#include ".xrdb/config/rxvt"
+
+! --------------------------------------------------------------------------
+! Xft Font Configuration
+! --------------------------------------------------------------------------
+
+Xft.lcdfilter: 	lcddefault
+Xft.hintstyle: 	hintslight
+Xft.hinting: 	true	
+Xft.antialias:	true 
+Xft.rgba: 	rgb

@@ -1,0 +1,12 @@
+! -----------------------------------------------------------
+! ROFI Color theme
+! State:           	'bg',	'fg',	'bgalt'	'hlbg',	'hlfg'
+! -----------------------------------------------------------
+
+rofi.color-enabled: 	true
+rofi.color-window: 	baseBG_DK, baseBG_DK, baseBG_DK
+rofi.color-normal: 	baseBG_DK, baseFG, baseBG_DK, baseRED_DK, baseYLW_BRT
+rofi.color-active: 	baseBG_DK, baseYLW_BRT, baseRED_DK, baseRED_DK, baseCYN_BRT
+rofi.color-urgent: 	baseBG_DK, baseCYN_BRT, baseBG_DK, baseBG_DK, baseMAG_BRT
+rofi.hide-scrollbar:	true
+rofi.font:		Object Sans 11
