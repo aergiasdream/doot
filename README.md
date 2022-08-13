@@ -8,7 +8,7 @@ A small explanation for the organization, if you want to use. Generally, these a
 
 ### .Xresources
 
-My .Xresources file normally only sources external files, but at the moment I have a bit extra in there I haven't pulled out yet. Colors live in .xrdb/color/, the rest (like my rofi config) is in .xrdb/config/. I'll write a color changing script some day, but for now the color files all have a basic variable template and the theme file is just a copy of one of the color files, so overwriting it shouldn't cause you to lose anything.
+My .Xresources file normally only sources external files, but at the moment I have a bit extra in there I haven't pulled out yet. Colors live in `.xrdb/color/`, the rest (like my rofi config) is in `.xrdb/config/`. I'll write a color changing script some day, but for now the color files all have a basic variable template and the theme file is just a copy of one of the color files, so overwriting it shouldn't cause you to lose anything.
 
 ### .bashrc
 
