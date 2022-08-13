@@ -1,5 +1,6 @@
 :set shiftwidth=2
 :set number
+:syntax enable
 set undofile
 set undodir=~/.vim/undo
 filetype on
@@ -10,6 +11,6 @@ if &term == "screen"
   set t_ts=k
   set t_fs=\
 endif
-if &term == "screen" || &term == "xterm-256color"
+if &term == "screen" || &term == "xterm-256color" || &term == "alacritty"
   set title
 endif

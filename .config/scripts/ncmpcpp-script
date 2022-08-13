@@ -2,5 +2,5 @@
 #
 # A script to run after ncmpcpp changes songs
 
-$HOME/.config/.scripts/albumart
-$HOME/.config/.scripts/now-playing
+$HOME/.config/scripts/albumart
+$HOME/.config/scripts/now-playing

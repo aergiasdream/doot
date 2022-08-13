@@ -56,7 +56,7 @@ visual_bell:
   animation: EaseOutExpo
   duration: 0
   color: '0xffffff'
-background_opacity: 1.0
+window.opacity: 1.0
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
 mouse:
@@ -66,9 +66,9 @@ mouse:
 hints:
   enabled:
     - regex: "(magnet:|mailto:|https:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
-    command: xdg-open
-    post_processing: true
-    mouse:
+    - command: xdg-open
+    - post_processing: true
+    - mouse:
       enabled: true
       mods: Control
 selection:

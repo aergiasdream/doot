@@ -1,5 +1,6 @@
 #!/bin/bash
 # Update alacritty config to apply Xresources color scheme
+# This is actually not useful for me at the moment since I source all color files from $HOME/.xrdb/color/ but I'll update it soon
 
 # Target file--this replaces the default alacritty config. I have backups, so if you're not me, don't run this without a backup
 target_file="$HOME/.config/alacritty/alacritty.yml"
