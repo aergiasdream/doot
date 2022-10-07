@@ -1,0 +1,54 @@
+<JWM>
+
+
+<!-- Key bindings -->
+<Key key="Up">up</Key>
+<Key key="Down">down</Key>
+<Key key="Right">right</Key>
+<Key key="Left">left</Key>
+<Key key="h">left</Key>
+<Key key="j">down</Key>
+<Key key="k">up</Key>
+<Key key="l">right</Key>
+<Key key="Return">select</Key>
+<Key key="Escape">escape</Key>
+<Key mask="A" key="Tab">nextstacked</Key>
+<Key mask="A" key="F4">close</Key>
+<Key mask="A" key="#">desktop#</Key>
+<Key mask="A" key="F1">root:1</Key>
+<Key mask="A" key="F2">window</Key>
+<Key mask="A" key="F10">maximize</Key>
+<Key key="XF86AudioLowerVolume">exec:amixer set Master 5%-</Key>
+<Key key="XF86AudioRaiseVolume">exec:amixer set Master 5%+</Key>
+<Key key="XF86AudioMute">exec:amixer set Master toggle amixer</Key>
+<Key key="XF86MonBrightnessDown">exec:backlight-brightness -5</Key>
+<Key key="XF86MonBrightnessUp">exec:backlight-brightness +5</Key>
+
+<Key mask="CA" key="Left">ldesktop</Key>
+<Key mask="CA" key="Right">rdesktop</Key>
+<Key mask="CA" key="Up">udesktop</Key>
+<Key mask="CA" key="Down">ddesktop</Key>
+<Key mask="CA" key="Return">maximize</Key>
+<Key mask="C4" key="Return">minimize</Key>
+<Key mask="CA" key="t">exec:alacritty</Key>
+<Key mask="4" key="t">exec:alacritty</Key>
+<Key mask="4" key="m">exec:.config/scripts/music-theme-start</Key>
+<Key mask="4" key="d">exec:wmctrl -k on</Key>
+<Key mask="4" key="a">exec:rofi -show drun -theme-str 'inputbar { children: [entry]; }'</Key>
+<Key key="Print">exec:scrot '%m-%d-%Y_%k%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'</Key>
+<Key mask="S" key="Print">exec:scrot -l style=dash,color="#a85a9b" -s '%m-%d-%Y_%k%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'</Key>
+<Key mask="1" key="Print">exec:scrot -u '%m-%d-%Y_%k%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'</Key>
+
+<!--Wingrid-->
+<Key mask="C" key="1">exec:wingrid-left.sh</Key>
+<Key mask="C" key="2">exec:wingrid-right.sh</Key>
+<Key mask="C" key="3">exec:wingrid-top.sh</Key>
+<Key mask="C" key="4">exec:wingrid-bottom.sh</Key>
+<Key mask="C" key="5">exec:wingrid-topleft.sh</Key>
+<Key mask="C" key="6">exec:wingrid-topright.sh</Key>
+<Key mask="C" key="7">exec:wingrid-bottomleft.sh</Key>
+<Key mask="C" key="8">exec:wingrid-bottomright.sh</Key>
+<Key mask="C" key="9">exec:wingrid-maximize.sh</Key>
+<Key mask="C" key="0">exec:wingrid-close.sh</Key>
+
+</JWM>
