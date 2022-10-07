@@ -6,9 +6,9 @@ while pgrep -u $UID -x ncmpcpp >/dev/null; do sleep 1; done
 
 echo "launching ncmpcpp"
 # alacritty --config-file ~/.config/alacritty/pine-ncmpcpp.yml -d 99 31 -t ncmpcpp -e ncmpcpp -c ~/.ncmpcpp/config-smooth &
-alacritty -d 99 31 -t ncmpcpp -e ncmpcpp -c ~/.ncmpcpp/config-smooth &
-echo "launching cava"
-alacritty --config-file ~/.config/alacritty/cava.yml -d 145 13 -t cava -e cava &
+alacritty --config-file ~/.config/alacritty/ncmpcpp.yml -e ncmpcpp &
+# echo "launching cava"
+# alacritty --config-file ~/.config/alacritty/cava.yml -d 145 13 -t cava -e cava &
 
 echo "done"
 exit 0

@@ -4,10 +4,17 @@
 
 cover=/tmp/cover.jpg
 
+if [ -f ${cover} ]; then
+  rm ${cover}
+fi
+
 { IFS=$(echo -en "\n\b")
-  if [ -f ${cover} ]; then
-    rm ${cover}
-  fi
   file="$(mpc --format [%file%] current)"
-  ffmpeg -loglevel quiet -vsync 2 -i ~/Music/${file} ${cover}
+  cover_in_dir=~/Music/${file%\/*}/cover.jpg
+
+  if [ -f ${cover_in_dir} ]; then
+    cp ${cover_in_dir} /tmp
+  else
+    ffmpeg -loglevel quiet -vsync 2 -i ~/Music/${file} ${cover}
+  fi
 }

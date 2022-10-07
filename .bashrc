@@ -74,7 +74,7 @@ unset color_prompt force_color_prompt
 current_term=$(grep -i -F "PPid:" "/proc/${1:-$PPID}/status" | echo "$(< "/proc/${1-$PPID}/comm")")
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+xterm*|rxvt*|alacritty*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}$current_term    \w\a\]$PS1"
     ;;
 *)
@@ -100,6 +100,7 @@ fi
 alias ll='ls -alF --block-size=M'
 alias la='ls -A'
 alias l='ls -CF'
+alias listfonts="fc-list | awk -F '[:,]' '{print \$2}' | sed 's/^[[:space:]]*//' | sort -bu"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -122,6 +123,7 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.config/.scripts:$PATH"
+export PATH="$HOME/bin:$PATH"
 export LS_COLORS="$LS_COLORS:ow=1;40;32:ln=target"
 . "$HOME/.cargo/env"
 alias doot='/usr/bin/git --git-dir=/home/dzpawlowski/.cfg/ --work-tree=/home/dzpawlowski'
