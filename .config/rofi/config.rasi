@@ -1,0 +1,58 @@
+//@theme "/usr/share/rofi/themes/sidebar.rasi"
+@theme "/usr/share/rofi/themes/arthur.rasi"
+
+* {
+    font: "Overpass 11";
+    bc: #543523;
+    bg1: #1c1813;
+    bg2: #14110f;
+    ibfg: #f6f5f4;
+    selbg: #543523;
+    selfg: #a2a793;
+}
+
+window {
+    border-radius: 8px;
+    width: 40em;
+}
+
+mainbox {
+  }
+
+button selected normal {
+    background-color: @bg1;
+}
+
+inputbar {
+    background-color: @bg1;
+    border-color: @bc;
+    border-radius: 8px 8px 0px 0px;
+    color: @ibfg;
+}
+
+listview {
+    background-color: @bg2;
+    border-color: @bc;
+    border-radius: 0px 0px 8px 8px;
+}
+
+element {
+    padding: 1px 1px 1px 1px;
+}
+
+element selected.normal {
+    background-color: @selbg;
+    color: @selfg;
+}
+
+element-icon {
+  padding: 5px;
+}
+
+element-text {
+  padding: 8px 0px 0px 3px;
+}
+
+message {
+    background-color: @bg2;
+}

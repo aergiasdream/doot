@@ -2,23 +2,23 @@
 
 <!-- Visual Styles -->
 <WindowStyle>
-  <Font>ObjectSans-10</Font>
+  <Font>Overpass-10</Font>
   <Width>1</Width>
   <Height>24</Height>
   <Active>
     <Foreground>#90BFC4</Foreground>
     <Background>#20393C:#17292b</Background>
-  <Outline>black</Outline>
+  <Outline>#14110f</Outline>
   </Active>
   
     <Foreground>#17292B</Foreground>
     <Background>#a8bbbf:#90BFC4</Background>
-  <Outline>black</Outline>
+  <Outline>#14110f</Outline>
   
 </WindowStyle>
 
 <TaskListStyle>
-  <Font>ObjectSans-12</Font>
+  <Font>Overpass-12</Font>
   <Active>
   <Foreground>black</Foreground>
   <Background>gray80:gray65</Background>
@@ -30,13 +30,13 @@
 </TaskListStyle>
 
 <TrayStyle>
-     <Font>ObjectSans-11</Font>
+     <Font>Overpass-11</Font>
      <Background>gray86</Background>
      <Foreground>black</Foreground>
 </TrayStyle>
 
 <ClockStyle>
-     <Font>ObjectSans-16</Font>
+     <Font>Overpass-16</Font>
   <Foreground>black</Foreground>
   <Background>gray86</Background>
 </ClockStyle>
@@ -52,19 +52,19 @@
 </PagerStyle>
 
 <MenuStyle>
-     <Font>ObjectSans-10</Font>
-     <Foreground>black</Foreground>
-     <Background>gray85</Background>
-        <Outline>#000000</Outline>
+     <Font>Overpass-10</Font>
+     <Foreground>#f6f5f4</Foreground>
+     <Background>#2a2420</Background>
+        <Outline>#14110f</Outline>
        <Active>
      <Foreground>white</Foreground>
-     <Background>#afc9eb:#82a7d5</Background>
+     <Background>#f26a22</Background>
   </Active>
-        <Opacity>0.85</Opacity>
+        <Opacity>1</Opacity>
 </MenuStyle>
 
 <PopupStyle enabled="true">
-  <Font>ObjectSans-10</Font>
+  <Font>Overpass-10</Font>
      <Outline>black</Outline>
      <Foreground>black</Foreground>
      <Background>yellow</Background>

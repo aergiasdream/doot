@@ -4,11 +4,12 @@
 
 <!-- Initialize the applications used in conjunction with JWM -->
 <Include>$HOME/.jwm/startup</Include>
+<Group><Option>notitle</Option></Group>
 
 <!-- The root menu, if this is undefined you will not get a menu. -->
 <!-- Additional RootMenu attributes: onroot, labeled, label -->
-<RootMenu height="20">
-
+<RootMenu height="0" onroot="3">
+  
    <!-- The backbone antiX menu -->
    <Include>$HOME/.jwm/menu</Include>
 

@@ -122,6 +122,8 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.config/.scripts:$PATH"
-export LS_COLORS="$LS_COLORS:ow=1;40;32:ln=target"
+export PATH="$HOME/.bin:$PATH"
+export LS_COLORS="$LS_COLORS:ow=1;40;32:ln=01"
 . "$HOME/.cargo/env"
 alias doot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+export EDITOR="/usr/bin/vim"
