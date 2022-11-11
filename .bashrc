@@ -126,4 +126,4 @@ export PATH="$HOME/.config/.scripts:$PATH"
 export PATH="$HOME/bin:$PATH"
 export LS_COLORS="$LS_COLORS:ow=1;40;32:ln=target"
 . "$HOME/.cargo/env"
-alias doot='/usr/bin/git --git-dir=/home/dzpawlowski/.cfg/ --work-tree=/home/dzpawlowski'
+alias doot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
