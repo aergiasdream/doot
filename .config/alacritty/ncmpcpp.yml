@@ -36,25 +36,25 @@ draw_bold_text_with_bright_colors: true
 colors:
   primary:
     background: '0x14110f'
-    foreground: '0xf6f5f4'
+    foreground: '0x007600'
   normal:
     black:   '0x525745'
-    red:     '0xaa6b50'
-    green:   '0x31742d'
-    yellow:  '0x8a8a35'
+    red:     '0xaa4400'
+    green:   '0x007600'
+    yellow:  '0xdb891d'
     blue:    '0x2e6c87'
-    magenta: '0x7c597c'
+    magenta: '0x701b70'
     cyan:    '0x007272'
-    white:   '0xc1c9cb'
+    white:   '0xe0e8ec'
   bright:
     black:   '0xa2a793'
-    red:     '0xd99578'
-    green:   '0x4e9046'
-    yellow:  '0xdcdc52'
+    red:     '0xf26a22'
+    green:   '0x31742d'
+    yellow:  '0x8a8a35'
     blue:    '0x4f8aa6'
-    magenta: '0x9a769a'
+    magenta: '0x954095'
     cyan:    '0x328e8e'
-    white:   '0xe0e8ec'
+    white:   '0xc1c9cb'
 visual_bell:
   animation: EaseOutExpo
   duration: 0

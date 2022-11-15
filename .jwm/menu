@@ -5,6 +5,8 @@
     <Program label="Lutris" icon="/usr/share/icons/Papirus/48x48/apps/lutris.svg">lutris</Program>
     <Program label="Steam" icon="/usr/share/icons/Papirus/48x48/apps/steam.svg">steam</Program>
     <Separator/>
+    <SendTo></SendTo>
+    <Separator/>
     <Menu label="Applications" icon="/usr/share/icons/Papirus/48x48/apps/applications-all.svg">
         <Include>$HOME/.jwm/menu-applications</Include>
     </Menu>

@@ -11,8 +11,8 @@ visualizer_type = spectrum
 visualizer_look = ●┃
 visualizer_color = cyan, green, yellow, magenta, red
 
-song_status_format = "$3%t $5by $7%a $1($5from $6%b$1)$(end)"
-song_list_format = "{{%30a}|{%30A}$(end) $1::$(end) $3%t$(end) $6$R%20b {$R$7%l}$(end)}|{$4%f}$(end)"
+song_status_format = "$2%t $1by $5%a $1($1from $6%b$1)$(end)"
+song_list_format = "{$5{%30a}|{%30A}$(end) $1::$(end) $2%t$(end) $6$R%20b {$R$7%l}$(end)}|{$4%f}$(end)"
 song_columns_list_format = (25)[cyan]{al} (50)[red]{tl}
 song_library_format = {$2%t}|{$2%f}$(end)
 now_playing_prefix = "$b"

@@ -38,6 +38,15 @@ colors:
     background: '0x12110f'
     foreground: '0xf6f5f4'
   normal:
+    black:   '0xa2a793'
+    red:     '0xf26a22'
+    green:   '0x4e9046'
+    yellow:  '0xdcdc52'
+    blue:    '0x4f8aa6'
+    magenta: '0x9a769a'
+    cyan:    '0x328e8e'
+    white:   '0xe0e8ec'
+  bright:
     black:   '0x525745'
     red:     '0xaa6b50'
     green:   '0x31742d'
@@ -46,15 +55,6 @@ colors:
     magenta: '0x7c597c'
     cyan:    '0x007272'
     white:   '0xc1c9cb'
-  bright:
-    black:   '0xa2a793'
-    red:     '0xd99578'
-    green:   '0x4e9046'
-    yellow:  '0xdcdc52'
-    blue:    '0x4f8aa6'
-    magenta: '0x9a769a'
-    cyan:    '0x328e8e'
-    white:   '0xe0e8ec'
 visual_bell:
   animation: EaseOutExpo
   duration: 0
