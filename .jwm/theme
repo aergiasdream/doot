@@ -3,17 +3,17 @@
 <!-- Visual Styles -->
 <WindowStyle>
   <Font>Overpass-10</Font>
-  <Width>1</Width>
+  <Width>2</Width>
   <Height>24</Height>
   <Active>
     <Foreground>#90BFC4</Foreground>
     <Background>#20393C:#17292b</Background>
-  <Outline>#14110f</Outline>
+  <Outline>#ffffff</Outline>
   </Active>
   
     <Foreground>#17292B</Foreground>
     <Background>#a8bbbf:#90BFC4</Background>
-  <Outline>#14110f</Outline>
+  <Outline>#888888</Outline>
   
 </WindowStyle>
 

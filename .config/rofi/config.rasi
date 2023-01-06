@@ -3,7 +3,7 @@
 
 * {
     font: "Overpass 11";
-    bc: #543523;
+    bc: #888888;
     bg1: #1c1813;
     bg2: #14110f;
     ibfg: #f6f5f4;

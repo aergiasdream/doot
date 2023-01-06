@@ -1,10 +1,14 @@
+import:
+  - ~/.config/alacritty/theme.yml
+font:
+  size: 1
 window:
   dimensions:
-    columns: 80
-    lines: 10
+    columns: 720 
+    lines: 80 
   position:
     x: 600
-    y: 687
+    y: 688
   padding:
     x: 10
     y: 10
@@ -16,45 +20,9 @@ scrolling:
   multiplier: 3
   auto_scroll: false
 tabspaces: 8
-font:
-  normal:
-    family: Overpass Mono
-  bold:
-    family: Overpass Mono
-  italic:
-    family: Overpass Mono
-  size: 10.5 
-  offset:
-    x: 0 
-    y: 0
-  glyph_offset:
-    x: 0
-    y: 0
 debug.render_timer: false
 debug.persistent_logging: false
 draw_bold_text_with_bright_colors: true
-colors:
-  primary:
-    background: '0x14110f'
-    foreground: '0xf6f5f4'
-  normal:
-    black:   '0x525745'
-    red:     '0xaa6b50'
-    green:   '0x31742d'
-    yellow:  '0x8a8a35'
-    blue:    '0x2e6c87'
-    magenta: '0x7c597c'
-    cyan:    '0x007272'
-    white:   '0xc1c9cb'
-  bright:
-    black:   '0xa2a793'
-    red:     '0xd99578'
-    green:   '0x4e9046'
-    yellow:  '0xdcdc52'
-    blue:    '0x4f8aa6'
-    magenta: '0x9a769a'
-    cyan:    '0x328e8e'
-    white:   '0xe0e8ec'
 visual_bell:
   animation: EaseOutExpo
   duration: 0

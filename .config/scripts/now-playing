@@ -5,6 +5,6 @@
 icon=/tmp/cover.jpg
 song=$(mpc current)
 
-notify-send -a ncmpcpp -t 10000 "Now Playing:" "$song" -i $icon
+dunstify --replace=369 -a ncmpcpp -t 10000 "Now Playing:" "$song" -i $icon
 
 exit 0

@@ -36,6 +36,7 @@
 <Key mask="4" key="d">exec:wmctrl -k on</Key>
 <Key mask="4" key="a">exec:.config/scripts/rofi-apps</Key>
 <Key mask="4" key="Escape">exec:.config/scripts/rofi-power-menu</Key>
+<Key mask="4" key="F10">exec:mpc toggle</Key>
 <Key key="Print">exec:scrot '%m-%d-%Y_%k%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'</Key>
 <Key mask="S" key="Print">exec:scrot -l style=dash,color="#a85a9b" -s '%m-%d-%Y_%k%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'</Key>
 <Key mask="1" key="Print">exec:scrot -u '%m-%d-%Y_%k%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'</Key>
