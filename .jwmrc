@@ -7,7 +7,7 @@
 
 <!-- The root menu, if this is undefined you will not get a menu. -->
 <!-- Additional RootMenu attributes: onroot, labeled, label -->
-<RootMenu height="20">
+<RootMenu onroot="3" height="20">
 
    <!-- The backbone antiX menu -->
    <Include>$HOME/.jwm/menu</Include>

@@ -1,6 +1,8 @@
 :set shiftwidth=2
 :set number
 :syntax enable
+:highlight LineNr ctermfg=DarkRed
+:highlight Statement ctermfg=DarkYellow
 set undofile
 set undodir=~/.vim/undo
 filetype on

@@ -1,0 +1,14 @@
+import:
+  - ~/.config/alacritty/alacritty.yml
+font:
+  size: 1
+window:
+  dimensions: 
+    columns: 720
+    lines: 80
+  position:
+    x: 600
+    y: 688
+  padding:
+    x: 10 
+    y: 10 

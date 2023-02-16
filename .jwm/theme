@@ -1,73 +1,71 @@
 <JWM>
 
 <!-- Visual Styles -->
+<IconPath>/home/dzpawlowski/.local/share/icons</IconPath>
+<IconPath>/usr/share/icons/papirus-antix</IconPath>
 <WindowStyle>
-  <Font>ObjectSans-10</Font>
+  <Font>Overpass-11</Font>
   <Width>1</Width>
   <Height>24</Height>
+  <Foreground>#e2e8d2</Foreground>
+  <Background>#615857</Background>
+  <Outline>#181b09</Outline>
   <Active>
-    <Foreground>#90BFC4</Foreground>
-    <Background>#20393C:#17292b</Background>
-  <Outline>black</Outline>
+    <Foreground>#e5c0ad</Foreground>
+    <Background>#615857</Background>
+    <Outline>#181b09</Outline>
   </Active>
-  
-    <Foreground>#17292B</Foreground>
-    <Background>#a8bbbf:#90BFC4</Background>
-  <Outline>black</Outline>
-  
 </WindowStyle>
 
 <TaskListStyle>
-  <Font>ObjectSans-12</Font>
+  <Font>Overpass-12</Font>
+  <Foreground>#e2e8d2</Foreground>
+  <Background>#6e6463</Background>
   <Active>
-  <Foreground>black</Foreground>
-  <Background>gray80:gray65</Background>
+    <Foreground>#181b09</Foreground>
+    <Background>#e5c0ad</Background>
   </Active>
-  
-  <Foreground>black</Foreground>
-  <Background>gray90:gray65</Background>
-  
 </TaskListStyle>
 
 <TrayStyle>
-     <Font>ObjectSans-11</Font>
-     <Background>gray86</Background>
-     <Foreground>black</Foreground>
+  <Font>Overpass-11</Font>
+  <Background>gray86</Background>
+  <Foreground>black</Foreground>
 </TrayStyle>
 
 <ClockStyle>
-     <Font>ObjectSans-16</Font>
+  <Font>Overpass-16</Font>
   <Foreground>black</Foreground>
   <Background>gray86</Background>
 </ClockStyle>
 
 <PagerStyle>
-     <Outline>black</Outline>
-     <Foreground>gray90</Foreground>
-     <Background>#808488</Background>
+  <Outline>black</Outline>
+  <Foreground>gray90</Foreground>
+  <Background>#808488</Background>
   <Active>
-     <Foreground>#70849d</Foreground>
-     <Background>#2e3a67</Background>
+    <Foreground>#70849d</Foreground>
+    <Background>#2e3a67</Background>
   </Active>
 </PagerStyle>
 
 <MenuStyle>
-     <Font>ObjectSans-10</Font>
-     <Foreground>black</Foreground>
-     <Background>gray85</Background>
-        <Outline>#000000</Outline>
-       <Active>
-     <Foreground>white</Foreground>
-     <Background>#afc9eb:#82a7d5</Background>
+  <Font>Overpass-10</Font>
+  <Foreground>#e2e8d2</Foreground>
+  <Background>#6e6463</Background>
+  <Outline>#000000</Outline>
+  <Opacity>0.85</Opacity>
+  <Active>
+    <Foreground>#181b09</Foreground>
+    <Background>#e5c0ad</Background>
   </Active>
-        <Opacity>0.85</Opacity>
 </MenuStyle>
 
 <PopupStyle enabled="true">
-  <Font>ObjectSans-10</Font>
-     <Outline>black</Outline>
-     <Foreground>black</Foreground>
-     <Background>yellow</Background>
+  <Font>Overpass-10</Font>
+  <Outline>#6e6463</Outline>
+  <Foreground>#181b09</Foreground>
+  <Background>#e5c0ad</Background>
 </PopupStyle>
 
 </JWM>

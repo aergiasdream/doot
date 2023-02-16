@@ -1,27 +1,12 @@
 #!/bin/bash
 
-INFO=$(iwconfig wlp3s0)
+# INFO=$(iwconfig wlp3s0)
+INFO=$(iwconfig wlan0)
 LEVEL=$(echo $INFO | grep -o "Signal level=.*dBm" | sed 's/Signal level=\(-[0-9]*\).*/\1/')
-blank="▫"
-fill="▪"
-# blank="○"
-# fill="●"
-
-# if [ -z "$LEVEL" ]; then
-#   echo ""
-# elif (( $LEVEL -gt -49 )); then
-#   echo "●●●●●"
-# elif [ $LEVEL -gt -59 ]; then 
-#   echo "●●●●○"
-# elif [ $LEVEL -gt -69 ]; then
-#   echo "●●●○○"
-# elif [ $LEVEL -gt -79 ]; then
-#   echo "●●○○○"
-# elif [ $LEVEL -gt -89 ]; then
-#   echo "●○○○○"
-# else 
-#   echo "○○○○○"
-# fi
+# blank="▫"
+# fill="▪"
+blank="○"
+fill="●"
 
 print_bar () {
 

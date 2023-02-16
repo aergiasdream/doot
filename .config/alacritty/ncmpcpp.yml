@@ -1,0 +1,9 @@
+import:
+  - ~/.config/alacritty/alacritty.yml
+window:
+  position:
+    x: 600
+    y: 210
+  padding:
+    x: 10 
+    y: 10 

@@ -1,0 +1,36 @@
+font:
+  normal:
+    family: Overpass Mono
+  bold:
+    family: Overpass Mono
+  italic:
+    family: Overpass Mono
+  size: 8
+  offset:
+    x: 0 
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+colors:
+  primary:
+    background: '0x6e6463'
+    foreground: '0xe2e8d2'
+  normal:
+    black:   '0x181b09'
+    red:     '0xe5c0ad'
+    green:   '0x38f689'
+    yellow:  '0xf4d03f'
+    blue:    '0x81cfe0'
+    magenta: '0xff96ff'
+    cyan:    '0x00d4d4'
+    white:   '0xc1c9cb'
+  bright:
+    black:   '0xa2a793'
+    red:     '0xffdecb'
+    green:   '0x6bffad'
+    yellow:  '0xffe757'
+    blue:    '0xa5f3ff'
+    magenta: '0xffdaff'
+    cyan:    '0x55fbfa'
+    white:   '0xdfe7e9'

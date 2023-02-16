@@ -14,11 +14,14 @@ visualizer_look = ●┃
 visualizer_color = cyan, green, yellow, magenta, red
 
 song_status_format = "$3%t $5by $7%a $1($5from $6%b$1)$(end)"
-song_list_format = "{$5{%a}|{%A}$(end) $1::$(end) $3%t$(end) $6$R%b {$R$7%l}}|{%f}$(end)"
+# song_list_format = "{$5{%a}|{%A}$(end) $1::$(end) $3%t$(end) $6$R%b {$R$7%l}}|{%f}$(end)"
+song_list_format = "{$5{%30a}|{%30A}$(end) $1::$(end) $2%t$(end) $6$R%20b {$R$7%l}$(end)}|{$4%f}$(end)"
 song_columns_list_format = (25)[cyan]{al} (50)[red]{tl}
 song_library_format = {$2%t}|{$2%f}
-now_playing_prefix = "$1·"
-now_playing_suffix = ""
+now_playing_prefix = "$b"
+now_playing_suffix = "$/b"
+current_item_prefix = "·"
+current_item_suffix = ""
 
 
 playlist_display_mode = classic 
@@ -47,8 +50,6 @@ main_window_color = default
 color1 = red
 color2 = blue
 # main_window_highlight_color = blue
-current_item_prefix = "$5"
-current_item_suffix = "$/r$(end)"
 statusbar_color = default
 alternative_ui_separator_color = magenta
 # active_column_color = red

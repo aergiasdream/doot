@@ -1,45 +1,21 @@
-font:
-  normal:
-    family: Alma Mono
-  bold:
-    family: Alma Mono
-  italic:
-    family: Alma Mono
-  size: 11.0
-  offset:
-    x: -1
-    y: 0
-  glyph_offset:
-    x: 0
-    y: 0
-render_timer: false
-persistent_logging: false
+window:
+  dimensions:
+    columns: 80
+    lines: 24
+  padding:
+    x: 10 
+    y: 10 
+  dynamic_padding: false
+  decorations: full
+  startup_mode: Windowed
+scrolling:
+  history: 10000
+  multiplier: 3
+  auto_scroll: false
+tabspaces: 8
+debug.render_timer: false
+debug.persistent_logging: false
 draw_bold_text_with_bright_colors: true
-colors:
-  primary:
-    background: '0xc1b18d'
-    foreground: '0x1f1f1f'
-  cursor:
-    text: '0xc1b18d'
-    cursor: '0x1f1f1f'
-  normal:
-    black:   '0x1f1f1f'
-    red:     '0x703416'
-    green:   '0x354c18'
-    yellow:  '0x573f22'
-    blue:    '0x004a65'
-    magenta: '0x573c5a'
-    cyan:    '0x124e4d'
-    white:   '0x4d4238'
-  bright:
-    black:   '0x706856'
-    red:     '0x8e4d2e'
-    green:   '0x4f6630'
-    yellow:  '0x745b3c'
-    blue:    '0x096683'
-    magenta: '0x725575'
-    cyan:    '0x306867'
-    white:   '0x6a5d53'
 visual_bell:
   animation: EaseOutExpo
   duration: 0
