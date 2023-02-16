@@ -6,6 +6,7 @@
 ! #include ".xrdb/color/pine"
 #include ".xrdb/config/rofi"
 #include ".xrdb/config/rxvt"
+#include ".xrdb/font/ProFont"
 
 ! --------------------------------------------------------------------------
 ! Xft Font Configuration

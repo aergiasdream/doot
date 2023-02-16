@@ -17,3 +17,7 @@ Added coloring for my PS1 variable with a bunch of setaf commands in convenient 
 ### .config/scripts
 
 Most of these scripts are made for when I'm either running openbox without a taskbar, or for piping information into tint2 or polybar. There is a script to show recent hockey scores, to pull album art from a song's ID3 tag, one to add to an autostart file to start polybar after logging in, and one to convert old playlist files (.m3u) to JSON for my personal website. Very unlikely that anyone wants to use these, but there you go.
+
+### alacritty
+
+I was fiddling about with how best to organize my alacritty configs, and I settled on having alacritty.yml consist of imports, one to the majority of preferred settings and one to a colorfile. Any settings that need to be overridden can be done in alacritty.yml after the imports, that way things like font size or window placement which work on one machine won't be overwritten on pull. 
