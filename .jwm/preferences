@@ -2,7 +2,7 @@
 <!-- Virtual Desktops -->
 <!-- Desktop tags can be contained within Desktops for desktop names. -->
 <Desktops height="1" width="4">
-  <Background type="command">feh --bg-scale /mnt/Storage/Media/Pictures/backgrounds/kentarotoma.jpg</Background>
+  <Background type="command">feh --bg-scale /mnt/Storage/Media/Pictures/backgrounds/washington.jpg</Background>
   <Desktop name="social"></Desktop>
   <Desktop name="code"></Desktop>
   <Desktop name="media"></Desktop>

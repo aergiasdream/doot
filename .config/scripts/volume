@@ -2,7 +2,8 @@
 #
 # Display volume of main audio channel (mute support)
 
-snd=$(amixer -D pulse sget Master)
+# snd=$(amixer -D pulse sget Master)
+snd=$(amixer sget Master)
 vol=$(echo $snd | awk -F "[][]" '{print $2}')
 st=$(echo $snd | awk -F "[][]" '{print $4}')
 

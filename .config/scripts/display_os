@@ -1,0 +1,16 @@
+#! /bin/bash
+
+# a script to display the os, shamelessly taken from aurafetch so I don't have to do extra work
+
+if [ -f '/etc/lsb-release' ]; then
+  os=$(grep 'DISTRIB_ID=\(\w\+\)' /etc/lsb-release)
+  os=${os/*=}
+else
+  os=$(grep '^ID=' /etc/os-release)
+  osv=$(grep '^VERSION_ID=' /etc/os-release)
+  osv=$(echo $osv | cut -f 2 -d "=")
+  os=$(echo $os | cut -f 2 -d "=")
+fi
+os=${os,,}
+
+echo $os $osv

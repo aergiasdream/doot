@@ -1,13 +1,20 @@
 #!/bin/bash
 #
 # Return name of active audio device (headphone, speaker, or bt friendly name) 
+# Only works with pulseaudio at the moment
 
 a_sink=$(pacmd list-sinks | awk '/* index:/{print $3}')
 sink_name=$(pactl list short sinks | grep ^${a_sink} | awk -F '\t' '{print $2}' | awk -F '_' '{print $1}')
 mac=$(pactl list short sinks | grep ${sink_name} | awk -F '\t' '{print $2}' | awk -F '.' '{print $2}' | sed 's/_/:/g')
-bt_name=$(bt-device -l | grep ${mac} | awk -F ' \\(' '{print $1}')
+
+if command -v bt-device &> /dev/null; then
+  bt_name=$(bt-device -l | grep ${mac} | awk -F ' \\(' '{print $1}')
+fi
+
 headphone=45874
-hp_or_spk=$(amixer -D pulse sget Master | grep "Front Left:" | awk -F ' ' '{print $4}')
+
+hp_or_spk=$(amixer sget Master | grep "Front Left:" | awk -F ' ' '{print $4}')
+# hp_or_spk=$(amixer -D pulse sget Master | grep "Front Left:" | awk -F ' ' '{print $4}')
 
 if [[ $bt_name != "" ]]; then
   echo ""

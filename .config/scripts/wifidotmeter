@@ -1,31 +1,30 @@
 #!/bin/bash
 
-INFO=$(iwconfig wlp3s0)
-LEVEL=$(echo $INFO | grep -o "Signal level=.*dBm" | sed 's/Signal level=\(-[0-9]*\).*/\1/')
-blank="▫"
-fill="▪"
-# blank="○"
-# fill="●"
+if command -v nmcli &> /dev/null; then
+  device="$(nmcli -g device con show -a | grep '^[ew]')"
+elif command -v route &> /dev/null; then
+  device="$(route | grep '^default' | head -1 | awk -F ' ' '{print $8}')"
+fi 
 
-# if [ -z "$LEVEL" ]; then
-#   echo ""
-# elif (( $LEVEL -gt -49 )); then
-#   echo "●●●●●"
-# elif [ $LEVEL -gt -59 ]; then 
-#   echo "●●●●○"
-# elif [ $LEVEL -gt -69 ]; then
-#   echo "●●●○○"
-# elif [ $LEVEL -gt -79 ]; then
-#   echo "●●○○○"
-# elif [ $LEVEL -gt -89 ]; then
-#   echo "●○○○○"
-# else 
-#   echo "○○○○○"
-# fi
+if [[ "$device" == w* ]]; then
+  if command -v iwconfig &> /dev/null; then
+    info=$(iwconfig $device)
+  fi
+elif [[ "$device" == e* ]]; then
+  info="Ethernet"
+else
+  info="Device info not found"
+fi
+
+level=$(echo $info | grep -o "Signal level=.*dBm" | sed 's/Signal level=\(-[0-9]*\).*/\1/')
+# blank="▫"
+# fill="▪"
+blank="○"
+fill="●"
 
 print_bar () {
 
-  step=$((( $LEVEL + 99 ) / 10 )) 
+  step=$((( $level + 99 ) / 10 )) 
 
   for i in 1 2 3 4 5
   do
@@ -38,4 +37,10 @@ print_bar () {
 
   echo $strength
 }
-print_bar
+
+if [[ "$device" == *w ]]; then
+  print_bar
+else
+  echo $info
+fi
+

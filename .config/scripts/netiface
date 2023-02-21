@@ -1,27 +1,40 @@
 #!/bin/bash
 #
 # Show networking information with optional formatting and icon
+# Updated to use nmcli first, and fallback to route
+# It also uses in order of preference iwgetid, iwconfig, and iw for SSID
+# Maybe change this to use flags for preferred method later
 
-device="$(route | grep '^default' | head -1 | awk -F ' ' '{print $8}')"
-ethernet="enp2s0f1"
-wireless="wlp3s0"
+if command -v nmcli &> /dev/null; then
+  device="$(nmcli -g device connection show --active | grep '^[ew]')"
+elif command -v route &> /dev/null; then
+  device="$(route | grep '^default' | head -1 | awk -F ' ' '{print $8}')"
+fi
 
-if [[ "$device" == "$ethernet" ]]; then
-  localip="$(ifconfig $device | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk -F ':' '{print $2}')"
-  if [[ $1 == "-i" ]]; then
-    echo -e ":${localip}"
+if [[ "$device" == e* ]]; then
+  localip="$(ifconfig $device | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | awk -F '[ :]' '{print $2}')"
+#   if [[ $1 == "-i" ]]; then
+#     echo -e ":${localip}"
+#   else
+#     echo -e "${localip}"
+#   fi
+  echo $localip
+elif [[ "$device" == w* ]]; then
+  if command -v iwgetid &> /dev/null; then
+    ssid="$(iwgetid -r)"
+  elif command -v iwconfig &> /dev/null; then
+    ssid="$(iwconfig $device | grep SSID | awk -F 'SSID:' '{print $2}')"
+  elif command -v iw &> /dev/null; then
+    ssid="$(iw $device info | grep -Po '(?<=ssid ).*')"
   else
-    echo -e "${localip}"
+    ssid="No command found for reading SSID"
   fi
-elif [[ "$device" == "$wireless" ]]; then
-  ssid="$(iwgetid -r)"
-  if [[ $1 == "-i" ]]; then
-    echo -e ":${ssid}"
-  else
-    echo -e "${ssid}"
-  fi
-elif [[ -z "$device" ]]; then
-  echo -e "Not connected"
-else
-  echo -e "Device not recognized"
+#   if [[ $1 == "-i" ]]; then
+#     echo -e ":${ssid}"
+#   else
+#     echo -e "${ssid}"
+#   fi
+  echo ${ssid}
+else 
+  echo "Device not recongized"
 fi

@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# Stolen from aurafetch which adapted their function from neofetch
+
+id=$(xprop -root -notype _NET_SUPPORTING_WM_CHECK 2>/dev/null)
+id=${id##* }
+wm="$(xprop -id "$id" -notype -len 100 -f _NET_WM_NAME 8t 2>/dev/null)"
+
+wm="${wm/*\ \"}"
+wm="${wm/\"*}"
+echo ${wm,,}
