@@ -2,4 +2,5 @@
 #
 # Saving time on typing in a long rofi command
 
-rofi -lines 12 -padding 18 -width 30 -location 0 -show drun -columns 1 -show-icons -theme-str '#inputbar { children: [entry]; } #window mainbox listview box { border: 4px; }'
+# rofi -lines 12 -padding 18 -width 30 -location 0 -show drun -columns 1 -show-icons -theme-str '#inputbar { children: [entry]; } #window mainbox listview box { border: 4px; }'
+rofi -show drun -show-icons -theme-str '#inputbar { children: [entry]; } #window mainbox listview box { border: 4px; }'

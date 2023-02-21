@@ -1,9 +1,10 @@
 import:
   - ~/.config/alacritty/alacritty.yml
+  - ~/.config/alacritty/music.yml
 window:
+  dimensions:
+    columns: 80
+    lines: 20
   position:
     x: 600
-    y: 210
-  padding:
-    x: 10 
-    y: 10 
+    y: 212

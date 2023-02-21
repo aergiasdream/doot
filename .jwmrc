@@ -5,10 +5,12 @@
 <!-- Initialize the applications used in conjunction with JWM -->
 <Include>$HOME/.jwm/startup</Include>
 
+<Group><Option>notitle</Option></Group>
+
 <!-- The root menu, if this is undefined you will not get a menu. -->
 <!-- Additional RootMenu attributes: onroot, labeled, label -->
 <RootMenu onroot="3" height="20">
-
+  
    <!-- The backbone antiX menu -->
    <Include>$HOME/.jwm/menu</Include>
 
@@ -17,6 +19,8 @@
      <Restart label="Restart JWM" icon="/usr/share/icons/papirus-antix/48x48/apps/view-refresh.png"/>
      <Program label="Log Out" icon="/usr/share/icons/papirus-antix/48x48/apps/application-exit.png">desktop-session-exit</Program>
    </Menu>
+   <Restart label="Restart JWM" icon="/usr/share/icons/Papirus/48x48/apps/system-restart.svg"/>
+   <Program label="Log Out" icon="/usr/share/icons/Papirus/48x48/apps/gnome-logout.svg">desktop-session-exit</Program>
 </RootMenu>
 
 <Include>$HOME/.jwm/keys</Include>

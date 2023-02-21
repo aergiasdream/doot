@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# A weather script using wttr.in to reduce the number of curls in conky
+# Updated to fallback to openweathermap.org in case of wttr.in not functioning
+
+wttr_format="%t_%C_%p_%S_%s_%T\n"
+# open weather key and location ID
+ow_key="59c002cd8866adaa74d622108ea73fd9"
+ow_loc="5809844"
+ow_url="https://api.openweathermap.org/data/2.5/weather?id=${ow_loc}&appid=${ow_key}&units=metric"
+# open and close tags for conky
+o='${color3}${alignr}'
+c='${color}'
+
+function get_status() {
+  # check status return code of provided url
+  echo "$(curl -Is $1 | head -1 | grep -Eo '([0-9]+){3}')"
+}
+
+if [[ "$(get_status wttr.in)" == 200 ]]; then
+  # echo "wttr.in is reachable"
+  weather=$(curl -fsSL "wttr.in?format=${wttr_format}&m")
+  temp=$(echo ${weather} | awk -F '_' '{print $1}' | tr -d '+')
+  conditions=$(echo ${weather} | awk -F '_' '{print $2}')
+  precipitation=$(echo ${weather} | awk -F '_' '{print $3}')
+  sunrise=$(echo ${weather} | awk -F '_' '{print $4}' | awk -F ':' '{print $1":"$2}')
+  sunset=$(echo ${weather} | awk -F '_' '{print $5}' | awk -F ':' '{print $1":"$2}')
+  localtime=$(echo ${weather} | awk -F '_' '{print $6}')
+# using 
+elif [[ "$(get_status ${ow_url})" == 200 ]]; then
+  # echo "openweathermap is reachable"
+  weather=$(curl -fsSL ${ow_url})
+  temp=$(echo $weather | grep -Eo '"temp":-*[0-9]+\.*[0-9]*' | cut -f 2 -d ":")
+  # round and add unit
+  temp=$(printf "%.0f°C\n" $(echo $temp | bc -l))
+  conditions=$(echo $weather | grep -Eo '"description":"\w+\s*\w*"' | cut -f 2 -d ":" | cut -f 2 -d "\"")
+  sunrise=$(date -d@$(echo $weather | grep -Eo '"sunrise":[0-9]+\.*[0-9]*' | cut -f 2 -d ":") +%H:%M)
+  sunset=$(date -d@$(echo $weather | grep -Eo '"sunset":[0-9]+\.*[0-9]*' | cut -f 2 -d ":") +%H:%M)
+fi
+
+# using temp here due to the weather variable populating with an error if status is 200 but information is still unavailable 
+if [[ "$temp" != "" ]]; then 
+  echo "Temperature:${o}${temp}${c}"
+  echo "Conditions:${o}${conditions}${c}"
+  # echo "Precipitation:${o}${precipitation}${c}"
+  echo "Sunrise:${o}${sunrise}${c}"
+  echo "Sunset:${o}${sunset}${c}"
+  # echo "Local Time:${o}${localtime}${c}"
+fi

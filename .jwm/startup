@@ -1,9 +1,14 @@
 <JWM>
+<<<<<<< HEAD
 
 <!-- Applications used in conjunction with JWM -->
 <StartupCommand> 
 tint2
 synclient TapButton1=0 TapButton2=0 TapButton3=0 PalmDetect=1
 </StartupCommand>
+=======
+<StartupCommand>tint2</StartupCommand>
+<StartupCommand>synclient TapButton1=0 TapButton2=0 TapButton3=0 PalmDetect=1</StartupCommand>
+>>>>>>> c500ae2c773e2c0d779718966caaa5acfda5a0d1
 </JWM>
 

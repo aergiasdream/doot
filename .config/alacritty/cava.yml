@@ -1,14 +1,13 @@
 import:
   - ~/.config/alacritty/alacritty.yml
+  - ~/.config/alacritty/music.yml
 font:
   size: 1
 window:
-  dimensions: 
+  dimensions:
     columns: 720
-    lines: 80
+    lines: 75
   position:
     x: 600
-    y: 688
-  padding:
-    x: 10 
-    y: 10 
+    y: 614
+        
