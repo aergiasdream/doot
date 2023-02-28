@@ -7,6 +7,7 @@ set undodir=~/.vim/undo
 filetype on
 filetype plugin on
 filetype indent on
+nnoremap \\ :noh<return>
 let &titlestring = "vim[" . expand("%:t") . "]"
 if &term == "screen"
   set t_ts=k

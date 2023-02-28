@@ -27,7 +27,9 @@ if [[ "$(get_status wttr.in)" == 200 ]]; then
   sunset=$(echo ${weather} | awk -F '_' '{print $5}' | awk -F ':' '{print $1":"$2}')
   localtime=$(echo ${weather} | awk -F '_' '{print $6}')
 # using 
-elif [[ "$(get_status ${ow_url})" == 200 ]]; then
+fi
+
+if [[ "$(echo $weather)" == Unknown* ]] && [[ "$(get_status ${ow_url})" == 200 ]]; then
   # echo "openweathermap is reachable"
   weather=$(curl -fsSL ${ow_url})
   temp=$(echo $weather | grep -Eo '"temp":-*[0-9]+\.*[0-9]*' | cut -f 2 -d ":")
@@ -38,8 +40,8 @@ elif [[ "$(get_status ${ow_url})" == 200 ]]; then
   sunset=$(date -d@$(echo $weather | grep -Eo '"sunset":[0-9]+\.*[0-9]*' | cut -f 2 -d ":") +%H:%M)
 fi
 
-# using temp here due to the weather variable populating with an error if status is 200 but information is still unavailable 
-if [[ "$temp" != "" ]]; then 
+# using the conditions variable here due to the weather variable populating with an error if status is 200 but information is still unavailable and temp would populate with the whole weather variable
+if [[ "$conditions" != "" ]]; then 
   echo "Temperature:${o}${temp}${c}"
   echo "Conditions:${o}${conditions}${c}"
   # echo "Precipitation:${o}${precipitation}${c}"

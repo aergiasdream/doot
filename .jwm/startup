@@ -1,5 +1,7 @@
 <JWM>
 <StartupCommand>tint2</StartupCommand>
 <StartupCommand>synclient TapButton1=0 TapButton2=0 TapButton3=0 PalmDetect=1</StartupCommand>
+<StartupCommand>conky -c .conkyrc</StartupCommand>
+<StartupCommand>conky -c .conky_taskrc.lua</StartupCommand>
 </JWM>
 
